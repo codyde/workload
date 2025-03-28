@@ -6,12 +6,16 @@ import { cors } from '@elysiajs/cors';
 import * as Sentry from '@sentry/bun';
 import { initializeDatabase } from './src/db';
 import { createRoutes } from './src/routes';
+import dotenv from 'dotenv';
+
+// Load environment variables
+dotenv.config();
 
 // Initialize the database
 await initializeDatabase();
  
 // Create the API server
-const app = new Elysia()
+export const app = new Elysia()
   .use(cors({
     origin: ['http://localhost:5173', 'http://localhost:5174'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],

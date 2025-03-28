@@ -6,7 +6,9 @@
   "devDependencies": {
     "@types/bun": "latest",
     "@vitest/coverage-v8": "latest",
-    "drizzle-kit": "^0.30.5"
+    "drizzle-kit": "^0.30.5",
+    "vitest": "latest",
+    "supertest": "latest"
   },
   "peerDependencies": {
     "typescript": "^5"
@@ -29,6 +31,9 @@
     "start": "bun run server.ts && bun run sentry:sourcemaps",
     "db:generate": "bun drizzle-kit generate",
     "db:push": "bun drizzle-kit push",
-    "sentry:sourcemaps": "sentry-cli sourcemaps inject --org buildwithcode --project workload-server ./ && sentry-cli sourcemaps upload --org buildwithcode --project workload-server ./"
+    "sentry:sourcemaps": "sentry-cli sourcemaps inject --org buildwithcode --project workload-server ./ && sentry-cli sourcemaps upload --org buildwithcode --project workload-server ./",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:watch": "vitest"
   }
 }

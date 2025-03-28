@@ -12,7 +12,7 @@ import { createRoutes } from './src/routes';
 dotenv.config();
 
 // Initialize the app
-const app = express();
+export const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Sentry request handler must be the first middleware
