@@ -9,7 +9,7 @@
     "build": "tsc",
     "db:generate": "drizzle-kit generate:pg",
     "db:migrate": "ts-node scripts/migrate.ts",
-    "test": "vitest run",
+    "test": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:watch": "vitest"
   },
@@ -41,6 +41,7 @@
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.3.3",
     "vitest": "^1.4.0",
-    "supertest": "^6.3.4"
+    "supertest": "^6.3.4",
+    "tsx": "^4.7.1"
   }
 }

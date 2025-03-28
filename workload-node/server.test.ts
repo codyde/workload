@@ -5,11 +5,20 @@ import * as Sentry from '@sentry/node';
 
 // Mock Sentry
 vi.mock('@sentry/node', () => ({
+  init: vi.fn(),
   Handlers: {
     requestHandler: vi.fn(() => (req: any, res: any, next: any) => next()),
     errorHandler: vi.fn(() => (err: any, req: any, res: any, next: any) => next(err)),
   },
   captureException: vi.fn(),
+  captureMessage: vi.fn(),
+  close: vi.fn(),
+  flush: vi.fn(),
+  getCurrentHub: vi.fn(() => ({
+    getClient: () => ({
+      getOptions: () => ({}),
+    }),
+  })),
 }));
 
 describe('Server', () => {
