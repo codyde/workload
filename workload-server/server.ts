@@ -1,3 +1,4 @@
+// @ts-dignore
 import "./instrument";
 
 import { Elysia } from 'elysia';
@@ -8,8 +9,6 @@ import { createRoutes } from './src/routes';
 
 // Initialize the database
 await initializeDatabase();
-
-const { info, debug, error, fmt } = Sentry._experiment_log;
  
 // Create the API server
 const app = new Elysia()
