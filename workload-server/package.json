@@ -1,0 +1,33 @@
+{
+  "name": "workload-server",
+  "module": "server.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest",
+    "drizzle-kit": "^0.30.5"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@elysiajs/cors": "^1.2.0",
+    "@elysiajs/swagger": "^1.2.2",
+    "@sentry/bun": "9.7.0-alpha.0",
+    "@sentry/cli": "^2.42.4",
+    "@types/pg": "^8.11.0",
+    "@types/uuid": "^10.0.0",
+    "drizzle-orm": "^0.41.0",
+    "elysia": "^1.2.25",
+    "pg": "^8.14.1",
+    "postgres": "^3.4.5",
+    "uuid": "^11.1.0"
+  },
+  "scripts": {
+    "dev": "bun run --watch server.ts",
+    "start": "bun run server.ts && bun run sentry:sourcemaps",
+    "db:generate": "bun drizzle-kit generate",
+    "db:push": "bun drizzle-kit push",
+    "sentry:sourcemaps": "sentry-cli sourcemaps inject --org buildwithcode --project workload-server ./ && sentry-cli sourcemaps upload --org buildwithcode --project workload-server ./"
+  }
+}
